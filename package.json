@@ -1,0 +1,31 @@
+{
+  "name": "t-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite examples",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@t-ui/components": "workspace:^",
+    "@t-ui/examples": "workspace:^",
+    "@t-ui/theme-chalk": "workspace:^",
+    "@t-ui/utils": "workspace:^",
+    "highlight.js": "^11.11.1",
+    "less": "^4.3.0",
+    "sass": "^1.88.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^6.3.5",
+    "vitepress": "^1.6.3"
+  }
+}

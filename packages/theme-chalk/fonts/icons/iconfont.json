@@ -1,0 +1,93 @@
+{
+  "id": "4922342",
+  "name": "t-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15838563",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "5391211",
+      "name": "info",
+      "font_class": "info",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "4586714",
+      "name": "warning",
+      "font_class": "warning",
+      "unicode": "e96b",
+      "unicode_decimal": 59755
+    },
+    {
+      "icon_id": "6652504",
+      "name": "error",
+      "font_class": "error",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "22064301",
+      "name": "success",
+      "font_class": "success",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11372686",
+      "name": "日历",
+      "font_class": "rili",
+      "unicode": "e8b4",
+      "unicode_decimal": 59572
+    },
+    {
+      "icon_id": "1462430",
+      "name": "下载",
+      "font_class": "xiazai-xue",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "5831280",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "6537195",
+      "name": "上传",
+      "font_class": "shangchuan1",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "7285465",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "11489421",
+      "name": "下载",
+      "font_class": "download",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "34273013",
+      "name": "加载",
+      "font_class": "loading",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    }
+  ]
+}

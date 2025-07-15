@@ -1,6 +1,6 @@
 import Message from "./src/message.vue";
 import { h, render } from "vue";
-import "./src/message.scss";
+// import "./src/message.scss";
 let messageInstaceList = [];
 
 const MESSAGE_START_TOP = 56; // 起始的高度

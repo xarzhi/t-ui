@@ -1,5 +1,5 @@
 <template>
-  <div><t-button>132</t-button></div>
+  <div><t-button type="primary">132</t-button></div>
 </template>
 
 <script setup></script>

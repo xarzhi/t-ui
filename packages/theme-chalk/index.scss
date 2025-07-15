@@ -1,11 +1,5 @@
-@import url(./commom/base.scss);
-@import url(./commom/theme.less);
-@import url(./fonts/icons/iconfont.css);
-@import url(./components/button.scss);
-@import url(./components/message.scss);
-
-* {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
+@import "./commom/base";
+@import "./commom/theme";
+// @import "./fonts/icons/iconfont.css";
+@import "./components/button";
+@import "./components/message";

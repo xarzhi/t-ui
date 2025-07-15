@@ -1,4 +1,8 @@
-import { createElementBlock, openBlock, normalizeClass, createCommentVNode, createElementVNode, renderSlot, getCurrentInstance, toDisplayString, h, render } from 'vue';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var vue = require('vue');
 
 const BUTTON_TYPE = [
   "default",
@@ -110,8 +114,8 @@ const handleClick = (e) => {
 };
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("button", {
-    class: normalizeClass([
+  return (vue.openBlock(), vue.createElementBlock("button", {
+    class: vue.normalizeClass([
       't-button',
       `t-button__${_ctx.type}`,
       `${_ctx.size && 't-button--' + _ctx.size}`,
@@ -123,24 +127,24 @@ return (_ctx, _cache) => {
     disabled: _ctx.disabled,
     onClick: _cache[0] || (_cache[0] = $event => (handleClick($event)))
   }, [
-    createCommentVNode(" <i v-if=\"loading\" :class=\"['iconfont', `icon-loading`, 'loading']\"></i> "),
+    vue.createCommentVNode(" <i v-if=\"loading\" :class=\"['iconfont', `icon-loading`, 'loading']\"></i> "),
     (_ctx.loading)
-      ? (openBlock(), createElementBlock("span", _hoisted_2, _cache[1] || (_cache[1] = [
-          createElementVNode("span", { class: "loading" }, null, -1 /* CACHED */)
+      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2, _cache[1] || (_cache[1] = [
+          vue.createElementVNode("span", { class: "loading" }, null, -1 /* CACHED */)
         ])))
-      : createCommentVNode("v-if", true),
-    createElementVNode("span", _hoisted_3, [
+      : vue.createCommentVNode("v-if", true),
+    vue.createElementVNode("span", _hoisted_3, [
       (_ctx.icon)
-        ? (openBlock(), createElementBlock("i", {
+        ? (vue.openBlock(), vue.createElementBlock("i", {
             key: 0,
-            class: normalizeClass(['iconfont', `icon-${_ctx.icon}`])
+            class: vue.normalizeClass(['iconfont', `icon-${_ctx.icon}`])
           }, null, 2 /* CLASS */))
-        : createCommentVNode("v-if", true),
+        : vue.createCommentVNode("v-if", true),
       (_ctx.$slots.default)
-        ? (openBlock(), createElementBlock("span", _hoisted_4, [
-            renderSlot(_ctx.$slots, "default")
+        ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4, [
+            vue.renderSlot(_ctx.$slots, "default")
           ]))
-        : createCommentVNode("v-if", true)
+        : vue.createCommentVNode("v-if", true)
     ])
   ], 10 /* CLASS, PROPS */, _hoisted_1$1))
 }
@@ -198,29 +202,29 @@ const MESSAGE_ICON_NAME = {
   error: "error",
 };
 
-const instance = getCurrentInstance();
+const instance = vue.getCurrentInstance();
 
 const close = () => {
   emit("close", instance.vnode.el.parentElement);
 };
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", {
-    class: normalizeClass(`t-message__${_ctx.type} t-message`)
+  return (vue.openBlock(), vue.createElementBlock("div", {
+    class: vue.normalizeClass(`t-message__${_ctx.type} t-message`)
   }, [
-    createElementVNode("i", {
-      class: normalizeClass(`iconfont iconfont_type icon-${MESSAGE_ICON_NAME[_ctx.type]}`)
+    vue.createElementVNode("i", {
+      class: vue.normalizeClass(`iconfont iconfont_type icon-${MESSAGE_ICON_NAME[_ctx.type]}`)
     }, null, 2 /* CLASS */),
-    createElementVNode("span", _hoisted_1, toDisplayString(_ctx.message), 1 /* TEXT */),
+    vue.createElementVNode("span", _hoisted_1, vue.toDisplayString(_ctx.message), 1 /* TEXT */),
     (_ctx.showClose)
-      ? (openBlock(), createElementBlock("span", {
+      ? (vue.openBlock(), vue.createElementBlock("span", {
           key: 0,
           class: "t-message_close_icon",
           onClick: close
         }, _cache[0] || (_cache[0] = [
-          createElementVNode("i", { class: "iconfont icon-close" }, null, -1 /* CACHED */)
+          vue.createElementVNode("i", { class: "iconfont icon-close" }, null, -1 /* CACHED */)
         ])))
-      : createCommentVNode("v-if", true)
+      : vue.createCommentVNode("v-if", true)
   ], 2 /* CLASS */))
 }
 }
@@ -255,7 +259,7 @@ const destoryMessageElement = (element) => {
 };
 
 const TMessage$1 = (config) => {
-  const VNode = h(script, {
+  const VNode = vue.h(script, {
     ...config,
     onClose(element) {
       destoryMessageElement(element); // 关闭时销毁
@@ -269,7 +273,7 @@ const TMessage$1 = (config) => {
     MESSAGE_START_TOP +
     (messageInstaceList.length - 1) * (MESSAGE_HEIGHT + MESSAGE_GAP) +
     "px";
-  render(VNode, container);
+  vue.render(VNode, container);
   setDestoryClock(container, config.delay);
 };
 
@@ -291,4 +295,5 @@ var index = {
 
 const TMessage = TMessage$1;
 
-export { TMessage, index as default };
+exports.TMessage = TMessage;
+exports.default = index;

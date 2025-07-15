@@ -27,11 +27,14 @@
     "@t-ui/utils": "workspace:^",
     "highlight.js": "^11.11.1",
     "less": "^4.3.0",
+    "path": "^0.12.7",
     "sass": "^1.88.0",
     "vue": "^3.5.17"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.2.4",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.0",
@@ -40,6 +43,7 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.45.0",
     "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-less": "^1.1.3",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.1",
     "rollup-plugin-vue": "^6.0.0",

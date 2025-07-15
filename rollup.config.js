@@ -1,39 +1,55 @@
-import resolve from "@rollup/plugin-node-resolve";
-import vuePlugin from "rollup-plugin-vue";
-import postcss from "rollup-plugin-postcss";
-import autoprefixer from "autoprefixer";
-import copy from "rollup-plugin-copy";
-import url from "postcss-url";
-
+import resolve from '@rollup/plugin-node-resolve';
+import vuePlugin from 'rollup-plugin-vue';
+import postcss from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer';
+import copy from 'rollup-plugin-copy';
+import url from 'postcss-url';
+import path from 'path'
 export default {
-  input: "./packages/components/index.js",
-  output: {
-    file: "dist/es.js",
-    name: "TestUI",
-    format: "es",
-  },
+  input: './packages/components/index.js',
+  output: [
+    {
+      file: 'dist/es.js',
+      name: 'TUI',
+      format: 'es'
+    },
+    {
+      file: 'dist/cjs.js',
+      name: 'TUI',
+      format: 'cjs',
+      exports: 'named'
+    },
+    {
+      file: 'dist/umd.js',
+      name: 'TUI',
+      format: 'umd',
+      exports: 'named',
+      globals: {
+        vue: 'Vue'
+      }
+    }
+  ],
   plugins: [
     resolve(),
     vuePlugin(),
     postcss({
-      extract: "theme-chalk/style.css", // 将css提取到单独的文件中
+      extract: 'theme-chalk/style.css', // 将css提取到单独的文件中
+      use: ['sass'], // 启用 Sass 支持
+      // includePaths: [path.resolve(import.meta.dirname, 'src')] ,// 指定 SCSS 搜索路径
       plugins: [
-        autoprefixer(),
+        // autoprefixer(),
         url({
-          url: "copy",
-          basePath: "fonts",
-          assetsPath: "fonts",
-        }),
+          url: 'copy',
+          basePath: 'fonts',
+          assetsPath: 'fonts',
+        })
       ],
     }),
     copy({
       targets: [
-        {
-          src: "packages/theme-chalk/fonts/*",
-          dest: "dist/theme-chalk/fonts/",
-        },
-      ],
-    }),
+        { src: 'packages/theme-chalk/fonts/*', dest: 'dist/theme-chalk/fonts/' }
+      ]
+    })
   ],
-  external: ["vue"], // 依赖模块
-};
+  external: ['vue'] // 依赖模块
+}

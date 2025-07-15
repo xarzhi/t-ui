@@ -34,3 +34,9 @@
   --t-warning-border: lighten(#fb6340, 30%);
   --t-danger-border: lighten(#f5365c, 30%);
 }
+@font-face {
+  font-family: "t-ui-icons";
+  src: url("../fonts/iconfont.woff2") format("woff2"),
+    url("../fonts/iconfont.woff") format("woff"),
+    url("../fonts/iconfont.ttf") format("truetype");
+}

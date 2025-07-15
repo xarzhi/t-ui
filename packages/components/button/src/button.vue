@@ -1,7 +1,7 @@
 <template>
   <button
-    class="t-button"
     :class="[
+      't-button',
       `t-button__${type}`,
       `${size && 't-button--' + size}`,
       `${shape && 't-button-shape-' + shape}`,

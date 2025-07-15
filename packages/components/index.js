@@ -1,5 +1,7 @@
 import * as components from "./components";
+
 import "@t-ui/theme-chalk/index.scss";
+
 const FUNCTION_COMP = ["TMessage"];
 
 export default {

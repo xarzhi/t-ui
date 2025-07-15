@@ -4,7 +4,6 @@ import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import copy from 'rollup-plugin-copy';
 import url from 'postcss-url';
-import path from 'path'
 export default {
   input: './packages/components/index.js',
   output: [
@@ -34,10 +33,9 @@ export default {
     vuePlugin(),
     postcss({
       extract: 'theme-chalk/style.css', // 将css提取到单独的文件中
-      use: ['sass'], // 启用 Sass 支持
-      // includePaths: [path.resolve(import.meta.dirname, 'src')] ,// 指定 SCSS 搜索路径
+      // use: ['sass'], // 启用 Sass 支持
       plugins: [
-        // autoprefixer(),
+        autoprefixer(),
         url({
           url: 'copy',
           basePath: 'fonts',

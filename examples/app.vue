@@ -13,27 +13,35 @@
     </div>
     <h3>Button size</h3>
     <div style="margin-bottom: 10px">
+      <t-button type="primary" size="large">primary</t-button>
+      <t-button type="success" size="large">success</t-button>
+      <t-button type="info" size="large">info</t-button>
+      <t-button type="warning" size="large">warning</t-button>
+      <t-button type="danger" size="large">danger</t-button>
+    </div>
+    <div style="margin-bottom: 10px">
+      <t-button type="primary" size="middle">primary</t-button>
+      <t-button type="success" size="middle">success</t-button>
+      <t-button type="info" size="middle">info</t-button>
+      <t-button type="warning" size="middle">warning</t-button>
+      <t-button type="danger" size="middle">danger</t-button>
+    </div>
+    <div>
       <t-button type="primary" size="small">primary</t-button>
       <t-button type="success" size="small">success</t-button>
       <t-button type="info" size="small">info</t-button>
       <t-button type="warning" size="small">warning</t-button>
       <t-button type="danger" size="small">danger</t-button>
     </div>
-    <div>
-      <t-button type="primary" size="mini">primary</t-button>
-      <t-button type="success" size="mini">success</t-button>
-      <t-button type="info" size="mini">info</t-button>
-      <t-button type="warning" size="mini">warning</t-button>
-      <t-button type="danger" size="mini">danger</t-button>
-    </div>
+
     <h3>Button round</h3>
     <div style="margin-bottom: 10px">
-      <t-button round>default</t-button>
-      <t-button type="primary" round>primary</t-button>
-      <t-button type="success" round>success</t-button>
-      <t-button type="info" round>info</t-button>
-      <t-button type="warning" round>warning</t-button>
-      <t-button type="danger" round>danger</t-button>
+      <t-button shape="round">default</t-button>
+      <t-button type="primary" shape="round">primary</t-button>
+      <t-button type="success" shape="round">success</t-button>
+      <t-button type="info" shape="round">info</t-button>
+      <t-button type="warning" shape="round">warning</t-button>
+      <t-button type="danger" shape="round">danger</t-button>
     </div>
 
     <h3>Button disabled</h3>
@@ -45,14 +53,14 @@
       <t-button type="danger" disabled>danger</t-button>
     </div>
 
-    <h3>Button icon</h3>
+    <!-- <h3>Button icon</h3>
 
     <div>
-      <t-button type="primary" icon="chart-bar">primary</t-button>
+      <t-button type="primary" icon="icon-info">primary</t-button>
       <t-button type="success" icon="calendar">success</t-button>
       <t-button type="info" icon="data-view"></t-button>
       <t-button type="primary" icon="download"></t-button>
-    </div>
+    </div> -->
 
     <h3>Button loading</h3>
 
@@ -117,12 +125,14 @@
       :showCheckbox="true"
       @handleClickNode="handleClickNode"
     />
+    <!-- 
     <h2>步骤条 Steps</h2>
     <h3>基础使用</h3>
     <div style="margin-bottom: 10px">
       <t-button type="primary" @click="handleNextStep">下一步</t-button>
       当前节点{{ active }}
     </div>
+    
     <t-steps :active="active">
       <t-step title="第一步" description="打开微信扫一扫" />
       <t-step title="第二步" description="添加好友" />
@@ -539,7 +549,7 @@
       @click="openFullScreenLoading2"
     >
       全屏加载自定义图标
-    </t-button>
+    </t-button> -->
   </div>
 </template>
 
@@ -741,7 +751,7 @@ const openFullScreenLoading2 = () => {
 .t-carousel-item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
-button{
+button {
   margin-right: 10px;
 }
 </style>

@@ -1,4 +1,4 @@
-import { createElementBlock, openBlock, normalizeClass, createCommentVNode, createElementVNode, renderSlot, getCurrentInstance, toDisplayString, h, render, resolveComponent, Fragment, renderList, createBlock } from 'vue';
+import { createElementBlock, openBlock, normalizeClass, createCommentVNode, createElementVNode, renderSlot, getCurrentInstance, toDisplayString, h, render, ref, computed, resolveComponent, withDirectives, withModifiers, normalizeStyle, Fragment, renderList, createBlock, vShow, watch, mergeProps } from 'vue';
 
 const BUTTON_TYPE = [
   "default",
@@ -69,7 +69,7 @@ const _hoisted_2$1 = {
   class: "loading_box"
 };
 const _hoisted_3$1 = { class: "t-button__inner" };
-const _hoisted_4$1 = { key: 1 };
+const _hoisted_4 = { key: 1 };
 
 
 var script$3 = /*@__PURE__*/Object.assign({
@@ -137,7 +137,7 @@ return (_ctx, _cache) => {
           }, null, 2 /* CLASS */))
         : createCommentVNode("v-if", true),
       (_ctx.$slots.default)
-        ? (openBlock(), createElementBlock("span", _hoisted_4$1, [
+        ? (openBlock(), createElementBlock("span", _hoisted_4, [
             renderSlot(_ctx.$slots, "default")
           ]))
         : createCommentVNode("v-if", true)
@@ -279,7 +279,14 @@ const TreeProps = {
     type: Array,
     default: () => [],
   },
+  // 节点的唯一标识
+  nodeKey: {
+    type: String,
+    default: "id",
+  },
 };
+
+const TreeNodeEmits$1 = ["handleClickNode"];
 
 const TreeNodeProps = {
   node: {
@@ -291,12 +298,28 @@ const TreeNodeProps = {
       children: [],
     }),
   },
+  // 是否显示可选择
+  showCheckbox: {
+    type: Boolean,
+    default: false,
+  },
+  // 节点的唯一标识
+  nodeKey: {
+    type: String,
+    default: "id",
+  },
+  // 是否默认展开
+  defaultExpandAll: {
+    type: Boolean,
+    default: false,
+  },
 };
 
+const TreeNodeEmits = ["handleClickNode", "changeCheckStatus"];
+
 const _hoisted_1$1 = { class: "t-tree-node" };
-const _hoisted_2 = { class: "t-tree-node__content" };
-const _hoisted_3 = { class: "t-tree-node__label" };
-const _hoisted_4 = { class: "t-tree-node__children" };
+const _hoisted_2 = { class: "t-tree-node__label" };
+const _hoisted_3 = { class: "t-tree-node__children" };
 
 
 var script$1 = /*@__PURE__*/Object.assign({
@@ -304,25 +327,80 @@ var script$1 = /*@__PURE__*/Object.assign({
 }, {
   __name: 'tree-node',
   props: TreeNodeProps,
-  setup(__props) {
+  emits: TreeNodeEmits,
+  setup(__props, { emit: __emit }) {
+
+const props = __props;
+const emit = __emit;
 
 
+
+const showChild = ref(props.defaultExpandAll);
+
+const handleClickNode = (e, node) => {
+  emit("handleClickNode", {
+    ...node,
+    $event: e, // 这边是携带上原生的事件对象，方便外部使用
+  });
+};
+
+const getCheckType = computed(() => {
+  let checkType = "";
+  if (props.node.isChecked) {
+    checkType = "all";
+  } else if (props.node.children && props.node.children.every((item) => item.isChecked === true)) {
+    checkType = "all";
+  } else if (props.node.children && props.node.children.some((item) => item.isChecked === true)) {
+    checkType = "some";
+  } else {
+    checkType = "none";
+  }
+  return checkType;
+});
+
+const changeCheckStatus = (node) => {
+  emit("changeCheckStatus", node);
+};
 
 return (_ctx, _cache) => {
   const _component_t_tree_node = resolveComponent("t-tree-node");
 
   return (openBlock(), createElementBlock("div", _hoisted_1$1, [
-    createElementVNode("div", _hoisted_2, [
-      createElementVNode("span", _hoisted_3, toDisplayString(_ctx.node.label), 1 /* TEXT */)
+    createElementVNode("div", {
+      class: "t-tree-node__content",
+      onClick: _cache[2] || (_cache[2] = $event => (handleClickNode($event, _ctx.node)))
+    }, [
+      createElementVNode("div", {
+        class: "t-icon icon-arrow-right-filling",
+        style: normalizeStyle({
+          visibility: _ctx.node.children && _ctx.node.children.length ? 'visible' : 'hidden',
+          transform: showChild.value ? 'rotateZ(90deg)' : '',
+        }),
+        onClick: _cache[0] || (_cache[0] = withModifiers($event => (showChild.value = !showChild.value), ["stop"]))
+      }, null, 4 /* STYLE */),
+      (props.showCheckbox)
+        ? (openBlock(), createElementBlock("span", {
+            key: 0,
+            class: normalizeClass(`p-tree-node__checkbox ${getCheckType.value}`),
+            onClick: _cache[1] || (_cache[1] = withModifiers($event => (changeCheckStatus(_ctx.node)), ["stop"]))
+          }, null, 2 /* CLASS */))
+        : createCommentVNode("v-if", true),
+      createElementVNode("span", _hoisted_2, toDisplayString(_ctx.node.label), 1 /* TEXT */)
     ]),
     createCommentVNode(" children "),
-    createElementVNode("div", _hoisted_4, [
+    withDirectives(createElementVNode("div", _hoisted_3, [
       (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.node.children, (child) => {
         return (openBlock(), createBlock(_component_t_tree_node, {
-          key: child.id,
-          node: child
-        }, null, 8 /* PROPS */, ["node"]))
+          key: child[props.nodeKey],
+          node: child,
+          "node-key": props.nodeKey,
+          showCheckbox: _ctx.showCheckbox,
+          onHandleClickNode: _cache[3] || (_cache[3] = $event => (emit('handleClickNode', $event))),
+          onChangeCheckStatus: _cache[4] || (_cache[4] = $event => (emit('changeCheckStatus', $event)))
+        }, null, 8 /* PROPS */, ["node", "node-key", "showCheckbox"]))
       }), 128 /* KEYED_FRAGMENT */))
+    ], 512 /* NEED_PATCH */), [
+      [vShow, showChild.value]
     ])
   ]))
 }
@@ -332,7 +410,7 @@ return (_ctx, _cache) => {
 
 script$1.__file = "packages/components/tree/src/tree-node.vue";
 
-const _hoisted_1 = { class: "t_tree" };
+const _hoisted_1 = { class: "t-tree" };
 
 
 var script = /*@__PURE__*/Object.assign({
@@ -340,20 +418,128 @@ var script = /*@__PURE__*/Object.assign({
 }, {
   __name: 'tree',
   props: TreeProps,
-  setup(__props) {
+  emits: TreeNodeEmits$1,
+  setup(__props, { expose: __expose, emit: __emit }) {
 
 const props = __props;
+const emit = __emit;
 
+
+
+const treeData = ref([]);
+
+watch(
+  () => props.data,
+  (newValue) => {
+    treeData.value = newValue;
+  },
+  { immediate: true }
+);
+
+const changeAllCheckStatus = (node) => {
+  node.isChecked = !node.isChecked;
+  if (node.children && node.children.length) {
+    changeChildCheckStatus(node.children, node.isChecked); // 更改子级所有节点状态
+  }
+  changeParentCheckStatus(treeData.value, node[props.nodeKey]); // 更改父级所有节点状态
+};
+
+// 修改子级的选中状态
+const changeChildCheckStatus = (children, isChecked) => {
+  children.forEach((node) => {
+    node.isChecked = isChecked;
+    if (node.children && node.children.length) changeChildCheckStatus(node.children, isChecked);
+  });
+};
+
+// 修改父级的选中状态
+const changeParentCheckStatus = (children, id, parent) => {
+  for (let item of children) {
+    if (item[props.nodeKey] === id) {
+      // 是否当前节点的所有子节点都选中
+      const result = children.every((item) => item.isChecked === true);
+      if (parent && parent.isChecked === result) {
+        // 如果父级跟需要改变的结果一致，则不需要再往上找了
+        break;
+      } else if (parent && parent.isChecked !== result) {
+        parent.isChecked = result;
+        parent && changeParentCheckStatus(treeData.value, parent[props.nodeKey]);
+      }
+    } else if (item.children && item.children.length) {
+      changeParentCheckStatus(item.children, id, item);
+    }
+  }
+};
+
+const changeCheckStatus = (node) => {
+  findNode(treeData.value, node[props.nodeKey], changeAllCheckStatus);
+};
+
+const findNode = (data, id, handleFun) => {
+  let obj = null;
+  for (let item of data) {
+    if (item[props.nodeKey] === id) {
+      obj = item;
+      handleFun(item);
+      break;
+    } else if (item.children && item.children.length) {
+      const res = findNode(item.children, id, handleFun);
+      if (res) obj = res;
+    }
+  }
+  return obj;
+};
+
+const getCheckedNodes = () => {
+  const checkedNodes = [];
+  getChecked(treeData.value, checkedNodes);
+  return checkedNodes.map((item) => item[props.nodeKey]);
+};
+
+const getChecked = (data, checkedNodes) => {
+  for (let item of data) {
+    if (item.isChecked) {
+      checkedNodes.push(item);
+    }
+    if (item.children && item.children.length) {
+      getChecked(item.children, checkedNodes);
+    }
+  }
+};
+
+const setCheckedNodes = (keys) => {
+  setChecked(treeData.value, keys);
+  keys.forEach((key) => {
+    changeParentCheckStatus(treeData.value, key); // 更改父级所有节点状态
+  });
+};
+
+const setChecked = (data, keys) => {
+  for (let item of data) {
+    if (keys.includes(item[props.nodeKey])) {
+      item.isChecked = true;
+    }
+    if (item.children && item.children.length) {
+      setChecked(item.children, keys);
+    }
+  }
+};
+
+__expose({
+  getCheckedNodes,
+  setCheckedNodes,
+});
 
 return (_ctx, _cache) => {
-  const _component_t_tree_node = resolveComponent("t-tree-node");
-
   return (openBlock(), createElementBlock("div", _hoisted_1, [
-    (openBlock(true), createElementBlock(Fragment, null, renderList(props.data, (node) => {
-      return (openBlock(), createBlock(_component_t_tree_node, {
-        key: _ctx.item.id,
+    (openBlock(true), createElementBlock(Fragment, null, renderList(treeData.value, (node) => {
+      return (openBlock(), createBlock(script$1, mergeProps({
+        key: node[props.nodeKey],
         node: node
-      }, null, 8 /* PROPS */, ["node"]))
+      }, { ref_for: true }, _ctx.$attrs, {
+        onHandleClickNode: _cache[0] || (_cache[0] = $event => (emit('handleClickNode', $event))),
+        onChangeCheckStatus: changeCheckStatus
+      }), null, 16 /* FULL_PROPS */, ["node"]))
     }), 128 /* KEYED_FRAGMENT */))
   ]))
 }

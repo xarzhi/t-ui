@@ -109,7 +109,7 @@ $fontColor: #333333;
   }
 }
 
-.t-button__default {
+.t-button__default:not(:disabled) {
   color: $fontColor;
   border-color: #d9d9d9;
   &:hover {
@@ -132,7 +132,7 @@ $fontColor: #333333;
   }
 }
 
-.t-button-shape-default {
+.t-button-shape-default{
   border-radius: 4px;
 
   // 尺寸

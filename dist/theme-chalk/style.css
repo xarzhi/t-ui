@@ -1,7 +1,7 @@
-@import "./fonts/iconfont.css";
+@import "./components/icon.css";
 :root {
   --t-default: #172b4d;
-  --t-primary: #1677FF;
+  --t-primary: #1677ff;
   --t-success: #2dce89;
   --t-info: #11cdef;
   --t-warning: #fb6340;
@@ -13,7 +13,7 @@
   --t-hover-color: #f2f2f2;
   --t-icon-fill-color: #ccc;
   --t-shadow: rgba(0, 0, 0, 0.12);
-  --t-primary-lighten: lighten(#1677FF, 23%);
+  --t-primary-lighten: lighten(#1677ff, 23%);
   --t-success-lighten: lighten(#2dce89, 45%);
   --t-info-lighten: lighten(#11cdef, 39%);
   --t-warning-lighten: lighten(#fb6340, 35%);
@@ -24,10 +24,6 @@
   --t-danger-border: lighten(#f5365c, 30%);
 }
 
-@font-face {
-  font-family: "t-ui-icons";
-  src: url("fonts/iconfont.woff2") format("woff2"), url("fonts/iconfont.woff") format("woff"), url("fonts/iconfont.ttf") format("truetype");
-}
 :root,
 [data-color-mode=light] {
   --background-color: #fff;
@@ -606,6 +602,34 @@
   color: var(--t-danger);
 }
 
+.t-tree .t-tree-node__content {
+  padding: 0 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 26px;
+  gap: 6px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.t-tree .t-tree-node__content:hover {
+  background-color: #f0f0f0;
+}
+.t-tree .t-tree-node__content .t-icon {
+  font-size: 13px;
+  color: var(--t-icon-fill-color);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.t-tree .t-tree-node__content .t-tree-node__label {
+  color: var(--t-text-color);
+}
 .t-tree .t-tree-node__children {
   padding-left: 20px;
 }

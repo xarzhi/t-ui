@@ -75,67 +75,67 @@ export const treeData = [
 
 export const columnData = [
   {
-    key: 'date',
-    label: 'Date',
+    key: "date",
+    label: "Date",
     width: "120",
   },
   {
-    key: 'name',
-    label: 'Name',
+    key: "name",
+    label: "Name",
   },
   {
-    key: 'address',
-    label: 'Address'
+    key: "address",
+    label: "Address",
   },
-]
+];
 
 export const columnData2 = [
   {
-    key: 'date',
-    label: 'Date',
+    key: "date",
+    label: "Date",
     width: "120",
   },
   {
-    key: 'name',
-    label: 'Name',
+    key: "name",
+    label: "Name",
     align: "center",
   },
   {
-    key: 'address',
-    label: 'Address'
+    key: "address",
+    label: "Address",
   },
-]
+];
 
 export const columnData3 = [
   {
-    key: 'zip',
-    label: 'Zip',
-    fixed: 'right'
+    key: "zip",
+    label: "Zip",
+    fixed: "right",
   },
   {
-    key: 'name',
-    label: 'Name',
+    key: "name",
+    label: "Name",
     width: "220",
-    fixed: 'left'
+    fixed: "left",
   },
   {
-    key: 'state',
-    label: 'State',
+    key: "state",
+    label: "State",
   },
   {
-    key: 'date',
-    label: 'Date',
+    key: "date",
+    label: "Date",
     width: "120",
-    fixed: 'left'
+    fixed: "left",
   },
   {
-    key: 'city',
-    label: 'City',
+    key: "city",
+    label: "City",
     width: "520",
   },
   {
-    key: 'address',
-    label: 'Address',
+    key: "address",
+    label: "Address",
     width: "820",
   },
   {
@@ -143,27 +143,27 @@ export const columnData3 = [
     label: "Tag",
     fixed: "right",
   },
-]
+];
 
 export const tableData = [
   {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
+    date: "2016-05-03",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
+    date: "2016-05-02",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
+    date: "2016-05-04",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
+    date: "2016-05-01",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
   },
-]
+];

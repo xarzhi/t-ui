@@ -1,13 +1,13 @@
 :root {
   --t-default: #172b4d;
-  --t-primary: #1677FF;
+  --t-primary: #1677ff;
   --t-success: #2dce89;
   --t-info: #11cdef;
   --t-warning: #fb6340;
   --t-danger: #f5365c;
 
   $default: #172b4d;
-  $primary: #1677FF;
+  $primary: #1677ff;
   $success: #2dce89;
   $info: #11cdef;
   $warning: #fb6340;
@@ -23,7 +23,7 @@
   --t-icon-fill-color: #ccc;
   --t-shadow: rgba(0, 0, 0, 0.12);
 
-  --t-primary-lighten: lighten(#1677FF, 23%);
+  --t-primary-lighten: lighten(#1677ff, 23%);
   --t-success-lighten: lighten(#2dce89, 45%);
   --t-info-lighten: lighten(#11cdef, 39%);
   --t-warning-lighten: lighten(#fb6340, 35%);
@@ -33,10 +33,4 @@
   --t-info-border: lighten(#11cdef, 30%);
   --t-warning-border: lighten(#fb6340, 30%);
   --t-danger-border: lighten(#f5365c, 30%);
-}
-@font-face {
-  font-family: "t-ui-icons";
-  src: url("../fonts/iconfont.woff2") format("woff2"),
-    url("../fonts/iconfont.woff") format("woff"),
-    url("../fonts/iconfont.ttf") format("truetype");
 }

@@ -67,16 +67,16 @@ const ButtonProps = {
   },
 };
 
-const _hoisted_1$1 = ["disabled"];
-const _hoisted_2 = {
+const _hoisted_1$3 = ["disabled"];
+const _hoisted_2$1 = {
   key: 0,
   class: "loading_box"
 };
-const _hoisted_3 = { class: "t-button__inner" };
-const _hoisted_4 = { key: 1 };
+const _hoisted_3$1 = { class: "t-button__inner" };
+const _hoisted_4$1 = { key: 1 };
 
 
-var script$1 = /*@__PURE__*/Object.assign({
+var script$3 = /*@__PURE__*/Object.assign({
   name: "t-button",
 }, {
   __name: 'button',
@@ -129,11 +129,11 @@ return (_ctx, _cache) => {
   }, [
     vue.createCommentVNode(" <i v-if=\"loading\" :class=\"['iconfont', `icon-loading`, 'loading']\"></i> "),
     (_ctx.loading)
-      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2, _cache[1] || (_cache[1] = [
+      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2$1, _cache[1] || (_cache[1] = [
           vue.createElementVNode("span", { class: "loading" }, null, -1 /* CACHED */)
         ])))
       : vue.createCommentVNode("v-if", true),
-    vue.createElementVNode("span", _hoisted_3, [
+    vue.createElementVNode("span", _hoisted_3$1, [
       (_ctx.icon)
         ? (vue.openBlock(), vue.createElementBlock("i", {
             key: 0,
@@ -141,23 +141,23 @@ return (_ctx, _cache) => {
           }, null, 2 /* CLASS */))
         : vue.createCommentVNode("v-if", true),
       (_ctx.$slots.default)
-        ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4, [
+        ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4$1, [
             vue.renderSlot(_ctx.$slots, "default")
           ]))
         : vue.createCommentVNode("v-if", true)
     ])
-  ], 10 /* CLASS, PROPS */, _hoisted_1$1))
+  ], 10 /* CLASS, PROPS */, _hoisted_1$3))
 }
 }
 
 });
 
-script$1.__file = "packages/components/button/src/button.vue";
+script$3.__file = "packages/components/button/src/button.vue";
 
-script$1.install = (app) => {
-  app.component(script$1.name, script$1);
+script$3.install = (app) => {
+  app.component(script$3.name, script$3);
 };
-const TButton = script$1;
+const TButton = script$3;
 
 const MESSAGE_TYPE = ["success", "info", "warning", "error"];
 
@@ -183,10 +183,10 @@ const Props = {
   },
 };
 
-const _hoisted_1 = { class: "t-message__text" };
+const _hoisted_1$2 = { class: "t-message__text" };
 
 
-var script = {
+var script$2 = {
   __name: 'message',
   props: Props,
   emits: ["close"],
@@ -215,7 +215,7 @@ return (_ctx, _cache) => {
     vue.createElementVNode("i", {
       class: vue.normalizeClass(`iconfont iconfont_type icon-${MESSAGE_ICON_NAME[_ctx.type]}`)
     }, null, 2 /* CLASS */),
-    vue.createElementVNode("span", _hoisted_1, vue.toDisplayString(_ctx.message), 1 /* TEXT */),
+    vue.createElementVNode("span", _hoisted_1$2, vue.toDisplayString(_ctx.message), 1 /* TEXT */),
     (_ctx.showClose)
       ? (vue.openBlock(), vue.createElementBlock("span", {
           key: 0,
@@ -231,7 +231,7 @@ return (_ctx, _cache) => {
 
 };
 
-script.__file = "packages/components/message/src/message.vue";
+script$2.__file = "packages/components/message/src/message.vue";
 
 let messageInstaceList = [];
 
@@ -259,7 +259,7 @@ const destoryMessageElement = (element) => {
 };
 
 const TMessage$1 = (config) => {
-  const VNode = vue.h(script, {
+  const VNode = vue.h(script$2, {
     ...config,
     onClose(element) {
       destoryMessageElement(element); // 关闭时销毁
@@ -277,10 +277,106 @@ const TMessage$1 = (config) => {
   setDestoryClock(container, config.delay);
 };
 
+const TreeProps = {
+  // 数据
+  data: {
+    type: Array,
+    default: () => [],
+  },
+};
+
+const TreeNodeProps = {
+  node: {
+    type: Object,
+    default: () => ({
+      id: "",
+      label: "",
+      showChild: false,
+      children: [],
+    }),
+  },
+};
+
+const _hoisted_1$1 = { class: "t-tree-node" };
+const _hoisted_2 = { class: "t-tree-node__content" };
+const _hoisted_3 = { class: "t-tree-node__label" };
+const _hoisted_4 = { class: "t-tree-node__children" };
+
+
+var script$1 = /*@__PURE__*/Object.assign({
+  name: "t-tree-node",
+}, {
+  __name: 'tree-node',
+  props: TreeNodeProps,
+  setup(__props) {
+
+
+
+return (_ctx, _cache) => {
+  const _component_t_tree_node = vue.resolveComponent("t-tree-node");
+
+  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+    vue.createElementVNode("div", _hoisted_2, [
+      vue.createElementVNode("span", _hoisted_3, vue.toDisplayString(_ctx.node.label), 1 /* TEXT */)
+    ]),
+    vue.createCommentVNode(" children "),
+    vue.createElementVNode("div", _hoisted_4, [
+      (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.node.children, (child) => {
+        return (vue.openBlock(), vue.createBlock(_component_t_tree_node, {
+          key: child.id,
+          node: child
+        }, null, 8 /* PROPS */, ["node"]))
+      }), 128 /* KEYED_FRAGMENT */))
+    ])
+  ]))
+}
+}
+
+});
+
+script$1.__file = "packages/components/tree/src/tree-node.vue";
+
+const _hoisted_1 = { class: "t_tree" };
+
+
+var script = /*@__PURE__*/Object.assign({
+  name: "t-tree",
+}, {
+  __name: 'tree',
+  props: TreeProps,
+  setup(__props) {
+
+const props = __props;
+
+
+return (_ctx, _cache) => {
+  const _component_t_tree_node = vue.resolveComponent("t-tree-node");
+
+  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+    (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(props.data, (node) => {
+      return (vue.openBlock(), vue.createBlock(_component_t_tree_node, {
+        key: _ctx.item.id,
+        node: node
+      }, null, 8 /* PROPS */, ["node"]))
+    }), 128 /* KEYED_FRAGMENT */))
+  ]))
+}
+}
+
+});
+
+script.__file = "packages/components/tree/src/tree.vue";
+
+script.install = (app) => {
+  app.component(script.name, script);
+};
+const TTree = script;
+
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
   TButton: TButton,
-  TMessage: TMessage$1
+  TMessage: TMessage$1,
+  TTree: TTree
 });
 
 const FUNCTION_COMP = ["TMessage"];

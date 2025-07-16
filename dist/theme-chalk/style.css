@@ -605,3 +605,7 @@
 .t-message.t-message__error .iconfont_type {
   color: var(--t-danger);
 }
+
+.t-tree .t-tree-node__children {
+  padding-left: 20px;
+}

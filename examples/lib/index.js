@@ -76,71 +76,71 @@ export const treeData = [
 export const columnData = [
   {
     key: "date",
-    label: "Date",
+    title: "Date",
     width: "120",
   },
   {
     key: "name",
-    label: "Name",
+    title: "Name",
   },
   {
     key: "address",
-    label: "Address",
+    title: "Address",
   },
 ];
 
 export const columnData2 = [
   {
     key: "date",
-    label: "Date",
+    title: "Date",
     width: "120",
   },
   {
     key: "name",
-    label: "Name",
+    title: "Name",
     align: "center",
   },
   {
     key: "address",
-    label: "Address",
+    title: "Address",
   },
 ];
 
 export const columnData3 = [
   {
     key: "zip",
-    label: "Zip",
+    title: "Zip",
     fixed: "right",
   },
   {
     key: "name",
-    label: "Name",
+    title: "Name",
     width: "220",
     fixed: "left",
   },
   {
     key: "state",
-    label: "State",
+    title: "State",
   },
   {
     key: "date",
-    label: "Date",
+    title: "Date",
     width: "120",
     fixed: "left",
   },
   {
     key: "city",
-    label: "City",
+    title: "City",
     width: "520",
   },
   {
     key: "address",
-    label: "Address",
+    title: "Address",
     width: "820",
   },
   {
     key: "tag",
-    label: "Tag",
+    title: "Tag",
     fixed: "right",
   },
 ];

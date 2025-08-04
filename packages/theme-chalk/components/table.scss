@@ -1,0 +1,30 @@
+.t-table {
+  color: var(--t-text-color);
+  .t-table__thead-wrapper {
+    border-bottom: 1px solid var(--t-border-color);
+  }
+  .t-table__thead,
+  .t-table__tbody {
+    width: 100%;
+  }
+  .t-table__thead tr,
+  .t-table__tbody tr {
+    display: flex;
+    align-items: center;
+  }
+  .t-table__thead tr > th,
+  .t-table__tbody tr > td {
+    padding: 8px 0;
+    flex: 1;
+    text-align: left;
+  }
+  .t-table__tbody tr {
+    border-bottom: 1px solid var(--t-border-color);
+    &:hover {
+      background-color: var(--t-hover-color);
+    }
+  }
+  .cell {
+    padding: 0 10px;
+  }
+}

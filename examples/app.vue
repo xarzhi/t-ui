@@ -125,20 +125,21 @@
       :showCheckbox="true"
       @handleClickNode="handleClickNode"
     />
-    <!-- 
+
     <h2>步骤条 Steps</h2>
     <h3>基础使用</h3>
     <div style="margin-bottom: 10px">
       <t-button type="primary" @click="handleNextStep">下一步</t-button>
       当前节点{{ active }}
     </div>
-    
+
     <t-steps :active="active">
       <t-step title="第一步" description="打开微信扫一扫" />
       <t-step title="第二步" description="添加好友" />
       <t-step title="第三步" description="选择我的头像" />
       <t-step title="第四步" description="转款1000万" />
     </t-steps>
+
     <h3>居中的步骤条</h3>
     <t-steps :active="active" align="center">
       <t-step title="第一步" description="打开微信扫一扫" />
@@ -148,7 +149,7 @@
     </t-steps>
     <h3>自定义图标1</h3>
     <t-steps :active="active">
-      <t-step title="起床" icon="notification" />
+      <t-step title="起床" icon="primary" />
       <t-step title="炒股" icon="data-view" />
       <t-step title="加仓" icon="good" />
       <t-step title="亏大了" icon="cry" />
@@ -179,13 +180,15 @@
     />
     <h2>表格 Table</h2>
     <h3>基础使用</h3>
-    <t-table :column-data="columnData" :table-data="tableData" />
+    <t-table :columns="columnData" :dataSource="tableData" />
+    <!-- 
+
     <h3>带斑马纹表格</h3>
-    <t-table :column-data="columnData" :table-data="tableData" stripe />
+    <t-table :columns="columnData" :dataSource="tableData" stripe />
     <h3>边框</h3>
-    <t-table :column-data="columnData" :table-data="tableData" border />
+    <t-table :columns="columnData" :dataSource="tableData" border />
     <h3>自定义列</h3>
-    <t-table :column-data="columnData" :table-data="tableData">
+    <t-table :columns="columnData" :dataSource="tableData">
       <template #address="{ scoped, $index }">
         这是第{{ $index }}行数据，内容是{{ scoped }}
       </template>
@@ -213,7 +216,10 @@
       border
       style="width: 860px"
     />
+     
+
     <h2>折叠面板 Collapse</h2>
+ 
     <h3>基础使用</h3>
     <t-collapse v-model="activeNames1">
       <t-collapse-item title="Consistency" name="1">

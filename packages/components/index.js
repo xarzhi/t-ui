@@ -4,8 +4,15 @@ import "@t-ui/theme-chalk/index.scss";
 
 const FUNCTION_COMP = ["TMessage"];
 
+const createPopperContainer = () => {
+  const popperContainer = document.createElement("div");
+  popperContainer.setAttribute("id", "p-popper-container");
+  document.body.append(popperContainer);
+};
+
 export default {
   install(app) {
+    createPopperContainer();
     Object.entries(components).forEach(([key, value]) => {
       if (!FUNCTION_COMP.includes(key)) app.component(key, value);
     });

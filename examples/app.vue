@@ -181,6 +181,17 @@
     <h2>表格 Table</h2>
     <h3>基础使用</h3>
     <t-table :columns="columnData" :dataSource="tableData" />
+
+    <h3>模态框 Dialog</h3>
+    <t-button type="primary" @click="show = true">Open</t-button>
+    <t-dialog v-model="show" width="500px" @ok="show = false">
+      噫吁嚱，危乎高哉！ 蜀道之难，难于上青天！ 蚕丛及鱼凫，开国何茫然！
+      尔来四万八千岁，不与秦塞通人烟。 西当太白有鸟道，可以横绝峨眉巅。
+      地崩山摧壮士死，然后天梯石栈相钩连。
+      上有六龙回日之高标，下有冲波逆折之回川。
+      黄鹤之飞尚不得过，猿猱欲度愁攀援。 青泥何盘盘，百步九折萦岩峦。
+      扪参历井仰胁息，以手抚膺坐长叹。
+    </t-dialog>
     <!-- 
 
     <h3>带斑马纹表格</h3>
@@ -575,6 +586,9 @@ const treeRef = ref(null);
 const active = ref(0);
 const currentPage1 = ref(1);
 const currentPage2 = ref(6);
+
+const show = ref(false);
+
 const bigTableData = [...Array(50).keys()].map((i) => {
   return {
     name: `张三${i}`,

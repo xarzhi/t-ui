@@ -5,3 +5,4 @@ export { TTable } from "./table";
 export { TStep } from "./Step";
 export { TSteps } from "./Steps";
 export { TPagination } from "./pagination";
+export { TDialog } from "./dialog";

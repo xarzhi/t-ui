@@ -1,6 +1,6 @@
 <script setup>
 import Type from './type.vue'
-import Size from './Size.vue'
+import Size from './size.vue'
 import Ghost from './Ghost.vue'
 import Disabled from './Disabled.vue'
 import Round from './Round.vue'

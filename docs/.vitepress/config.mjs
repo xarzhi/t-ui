@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "t-ui",
+  base: "t-ui",
   description: "一个简单的vue3组件库",
   themeConfig: {
     nav: [

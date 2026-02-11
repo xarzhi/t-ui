@@ -5,6 +5,7 @@ import "@t-ui/theme-chalk/index.scss";
 const FUNCTION_COMP = ["TMessage"];
 
 const createPopperContainer = () => {
+  if (typeof window === 'undefined') return;
   const popperContainer = document.createElement("div");
   popperContainer.setAttribute("id", "p-popper-container");
   document.body.append(popperContainer);

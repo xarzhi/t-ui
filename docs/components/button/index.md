@@ -1,10 +1,10 @@
 <script setup>
 import Type from './type.vue'
 import Size from './size.vue'
-import Ghost from './Ghost.vue'
-import Disabled from './Disabled.vue'
-import Round from './Round.vue'
-import Loading from './Loading.vue'
+import Ghost from './ghost.vue'
+import Disabled from './disabled.vue'
+import Round from './round.vue'
+import Loading from './loading.vue'
 </script>
 <style>
 button {
